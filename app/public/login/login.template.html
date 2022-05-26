@@ -1,0 +1,6 @@
+<div ng-controller="LoginController as ctrl">
+  Tela de Login
+  <h6 ng-repeat="user in ctrl.users">{{user.nome}}| {{user.idade}}</h6>
+
+  <button ng-click="ctrl.home()">Voltar para home</button>
+</div>
