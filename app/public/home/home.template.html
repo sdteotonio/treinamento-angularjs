@@ -1,6 +1,33 @@
 <div ng-controller="HomeController as ctrl">
-  <div ng-repeat="user in ctrl.users">
-    <span class="label label-success">{{user.nome}}</span>
+  <div class="container-fluid characters-container">
+    <div class="row search-container">
+      <form name="search">
+        <div class="col-md-4">
+          <div class="input-group">
+            <input class="form-control"
+              ng-model="ctrl.searchName"
+              type="text"
+              placeholder="Search character...">
+            <span class="input-group-btn">
+              <button class="btn btn-primary"
+                ng-click="ctrl.getCharacters()"
+                type="button">
+                Go!
+              </button>
+            </span>
+          </div>
+          <!-- /input-group -->
+        </div>
+        <!-- /.col-lg-6 -->
+      </form>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-4"
+        ng-repeat="character in ctrl.characters">
+        <list-character-item character="character"></list-character-item>
+      </div>
+
+    </div>
   </div>
-  <button ng-click="ctrl.login()">Login</button>
+
 </div>

@@ -1,15 +1,20 @@
 angular
   .module("app")
-  .controller("HomeController", ["userService", "$state", HomeController]);
+  .controller("HomeController", ["CharactersService", HomeController]);
 
-function HomeController(userService, $state) {
+function HomeController(charactersService) {
   const vm = this;
-  vm.users = [];
-  userService.getUsers().then((response) => {
-    vm.users = response.data;
-  });
+  vm.characters = [];
+  vm.searchName = "";
 
-  vm.login = () => {
-    $state.go("login");
+  vm.getCharacters = () => {
+    charactersService
+      .getAllCharacters(vm.searchName)
+      .then((response) => {
+        vm.characters = response.data.data.results;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 }

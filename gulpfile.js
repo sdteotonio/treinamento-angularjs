@@ -33,7 +33,7 @@ gulp.task("app.html", () => {
 
 gulp.task("app.css", () => {
   return gulp
-    .src("app/**/*.css")
+    .src(["app/**/*.css", "assets/css/**/*.css"])
     .pipe(uglifycss({ uglyComments: true }))
     .pipe(concat("app.min.css"))
     .pipe(gulp.dest("dist/assets/css"));
@@ -87,6 +87,7 @@ gulp.task("deps.css", () => {
 gulp.task("watch", () => {
   watch("app/**/*.html", () => gulp.start("app.html"));
   watch("app/**/*.css", () => gulp.start("app.css"));
+  watch("assets/css/**/*.css", () => gulp.start("app.css"));
   watch("app/**/*.js", () => gulp.start("app.js"));
   watch("app/**/*.*", () => gulp.start("app.assets"));
 });
