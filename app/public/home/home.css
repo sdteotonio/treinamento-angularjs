@@ -10,3 +10,16 @@
 .search-container {
   margin-bottom: 20px;
 }
+
+.titulo {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+body {
+  background-color: #c6c6c6;
+}
+
+.limit-item {
+  padding: 5px;
+}

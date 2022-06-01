@@ -1,4 +1,4 @@
-<div ng-controller="HomeController as ctrl">
+<section ng-controller="HomeController as ctrl">
   <div class="container-fluid characters-container">
     <div class="row search-container">
       <form name="search">
@@ -10,24 +10,48 @@
               placeholder="Search character...">
             <span class="input-group-btn">
               <button class="btn btn-primary"
-                ng-click="ctrl.getCharacters()"
+                ng-click="ctrl.search()"
                 type="button">
                 Go!
               </button>
             </span>
           </div>
-          <!-- /input-group -->
         </div>
-        <!-- /.col-lg-6 -->
       </form>
-    </div>
-    <div class="row text-center">
-      <div class="col-md-4"
-        ng-repeat="character in ctrl.characters">
-        <list-character-item character="character"></list-character-item>
+      <div class="col-md-4">
+        <!-- Single button -->
+        <div class="btn-group">
+          <button class="btn btn-primary dropdown-toggle"
+            type="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+            Limite ({{ctrl.limit}})
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li ng-click="ctrl.switchLimit(limit)"
+              ng-repeat="limit in ctrl.limits">
+              <span class="limit-item">{{limit}}</span>
+            </li>
+          </ul>
+        </div>
       </div>
-
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-2"
+        ng-repeat="character in ctrl.characters">
+        <list-character-item character="character"
+          see-details="ctrl.seeDetails(character)"></list-character-item>
+      </div>
+      <div class="col-md-12"
+        ng-if="ctrl.characters.length <= ctrl.totalItems">
+        <button class="btn btn-primary"
+          ng-click="ctrl.seeMore()">
+          Ver mais
+        </button>
+      </div>
     </div>
   </div>
 
-</div>
+</section>

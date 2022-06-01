@@ -1,0 +1,19 @@
+<div class="thumbnail character-container">
+  <div class="caption">
+    <img ng-src="{{ctrl.character.thumbnail.path + '/standard_xlarge.jpg'}}">
+    <h3>
+      {{ctrl.character.name}}
+    </h3>
+    <p>
+      {{ctrl.character.description ||  'Não há descrição para o personagem'}}
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button class="btn btn-primary"
+        ng-click="ctrl.seeDetails()">
+        Detalhes
+      </button>
+    </div>
+  </div>
+</div>
