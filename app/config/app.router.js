@@ -1,7 +1,8 @@
 angular.module("app").config([
   "$stateProvider",
   "$urlRouterProvider",
-  function ($stateProvider, $urlRouterProvider) {
+  "$httpProvider",
+  function ($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider
       .state("home", {
         url: "/home",
@@ -16,5 +17,6 @@ angular.module("app").config([
         },
       });
     $urlRouterProvider.otherwise("/home");
+    $httpProvider.interceptors.push("Interceptor");
   },
 ]);

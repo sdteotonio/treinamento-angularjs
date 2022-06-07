@@ -1,19 +1,17 @@
-<div class="thumbnail character-container">
-  <div class="caption">
-    <img ng-src="{{ctrl.character.thumbnail.path + '/standard_xlarge.jpg'}}">
-    <h3>
+<div class="card character-container"
+  style="width: 18rem;">
+  <img class="card-img-top"
+    ng-src="{{ctrl.character.thumbnail.path + '/standard_xlarge.jpg'}}">
+  <div class="card-body">
+    <h5 class="card-title">
       {{ctrl.character.name}}
-    </h3>
-    <p>
+    </h5>
+    <p class="card-text">
       {{ctrl.character.description ||  'Não há descrição para o personagem'}}
     </p>
-  </div>
-  <div class="row">
-    <div class="col-md-12 text-right">
-      <button class="btn btn-primary"
-        ng-click="ctrl.seeDetails()">
-        Detalhes
-      </button>
-    </div>
+    <a class="btn btn-primary"
+      ng-click="ctrl.seeDetails()">
+      Detalhes
+    </a>
   </div>
 </div>

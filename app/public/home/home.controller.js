@@ -12,6 +12,10 @@ function HomeController(charactersService, $state) {
   vm.searchName = "";
   vm.offset = 0;
 
+  vm.modalData = {
+    title: "",
+    desc: "",
+  };
   vm.limits = [5, 10, 20];
   vm.limit = vm.limits[2];
   vm.totalItems = 0;
@@ -42,7 +46,6 @@ function HomeController(charactersService, $state) {
 
   vm.seeDetails = (character) => {
     console.log("Informação", character);
-    $state.go("details", { characterId: character.id });
   };
 
   vm.switchLimit = (limit) => {
